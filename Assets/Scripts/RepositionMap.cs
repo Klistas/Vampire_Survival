@@ -7,6 +7,13 @@ public class RepositionMap : MonoBehaviour
     public float MapSize; // 현재 맵 사이즈에 따라 어느정도 이동했을때 플레이어 이동방향으로 재배치
     public Transform Player; // 플레이어의 위치를 알아야 하기 때문에.
 
+    private ObstacleGenerator og;
+
+    private void Start()
+    {
+        og = GetComponent<ObstacleGenerator>();
+    }
+
     void Update()
     {
         MapReposition();
@@ -35,6 +42,8 @@ public class RepositionMap : MonoBehaviour
             {
                 transform.Translate(Vector3.right * MapSize * 2);
             }
+            // x축 이동시 장애물 재생성
+            og.GenerateObstacle();
         }
         // Y축 계산 및 위치조정
         if (Mathf.Abs(diffY) > MapSize) // 어느 방향으로 이동하든, 맵 사이즈만큼 움직이면 동작함.
@@ -47,6 +56,8 @@ public class RepositionMap : MonoBehaviour
             {
                 transform.Translate(Vector3.up * MapSize * 2);
             }
+            // y축 이동시 장애물 재생성
+            og.GenerateObstacle();
         }
     }
 }
