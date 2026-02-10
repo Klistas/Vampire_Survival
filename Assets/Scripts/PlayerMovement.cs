@@ -7,12 +7,18 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb; // 물리연산을 통해 이동할 것이므로 리지드바디 필요.
     private SpriteRenderer sp; // 플레이어 방향전환을 위한 렌더러.
     private Vector2 moveInput; // 키보드 입력값.
+    private Animator animator; // 애니메이션을 담당하는 애니메이터
+    private bool isWalking; // 이동 입력이 있는지 여부.
+
+    private int walkingHash; // 애니메이션의 이름을 해싱함 == 성능 좋음
 
     private void Start()
     {
         // 초기화 작업 진행. 플레이어에 있는 리지드바디,스프라이트 렌더러 가져오기
         rb = GetComponent<Rigidbody2D>();
         sp = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        walkingHash = Animator.StringToHash("IsWalking");// 애니메이션의 이름을 해싱함 == 성능 좋음
     }
 
     private void Update()
@@ -35,6 +41,18 @@ public class PlayerMovement : MonoBehaviour
         // 이미 매핑된 Horizontal,Vertical 키를 통해 입력값을 받을 수 있음.
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
+
+        if(moveInput.magnitude != 0) // 움직이는 상태 일때는
+        {
+            isWalking = true;
+        }
+        else
+        {
+            isWalking = false;
+        }
+
+        // 애니메이션 요소를 추가할 것.
+        animator.SetBool(walkingHash, isWalking);
     }
 
     /// <summary>
