@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
             Vector2 spawnOffset = randomDirection * SpawnDistance; // 찍어준 좁은 범위를 정해진 크기만큼 넓혀준다.
             Vector3 spawnPosition = Player.position + (Vector3)spawnOffset; // 플레이어의 위치를 중심으로 오프셋을 더해줌으로써 랜덤한 위치에 생성.
             //연산된 위치에 해당 프리팹을 생성
-            Instantiate(Enemies[0], spawnPosition, Quaternion.identity);
+            PoolManager.instance.Get(0, spawnPosition);
             // SpawnTime 만큼 기다렸다가 생성.
             yield return new WaitForSeconds(SpawnTime);
         }

@@ -5,6 +5,7 @@ public class EnemyAI : MonoBehaviour
     // 이동에 관련된 정보들(이동속도,플레이어,리지드바디...)
     [Header("이동 관련값")]
     public float MoveSpeed; // 이동 속도
+    public float DisableDistance; // 얼마 멀어졌을때 비활성화 할 것인지
     public Transform Player; // 플레이어의 위치
 
     private Rigidbody2D rb;
@@ -29,6 +30,14 @@ public class EnemyAI : MonoBehaviour
         Vector3 direction = (Player.position - transform.position).normalized;
         // 연산한 방향으로 이동.
         transform.Translate(direction * MoveSpeed * Time.deltaTime);
+
+        // 플레이어와 멀어지면
+        if(Vector2.Distance(transform.position,Player.position) > DisableDistance)
+        {
+            // 풀로 돌려줌
+            PoolManager.instance.Return(gameObject, 0);
+        }
+
         // 이동할때, 방향에 따라서 Flip 방향전환
         if(direction.x > 0)
         {
