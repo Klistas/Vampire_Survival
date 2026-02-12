@@ -81,8 +81,7 @@ public class Weapon : MonoBehaviour
         // 위치 잡아주고,
         GameObject bulletObj = PoolManager.instance.Get(WeaponIndex, transform.position);
         // 방향 잡아주고,
-        Debug.Log(target.transform.position);
-        Vector3 direction = target.position - bulletObj.transform.position;
+        Vector3 direction = target.position - transform.position;
         bulletObj.transform.up = direction;
         // 데미지 전달해주면 끝
         bulletObj.GetComponent<Bullet>().Init(BulletSpeed, LifeTime, Damage);

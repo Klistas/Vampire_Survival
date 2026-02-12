@@ -44,6 +44,7 @@ public class Bullet : MonoBehaviour
         if(collision.CompareTag("Enemy"))
         {
             // 데미지 주는 로직
+            collision.GetComponent<EnemyHit>().TakeDamage(damage);
 
             // 총알을 비활성화하고 반환
             PoolManager.instance.Return(gameObject, 1);

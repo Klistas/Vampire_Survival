@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7463677862999370310}
   - component: {fileID: 8330944428381985894}
   - component: {fileID: 3316511937033057769}
+  - component: {fileID: -5040506291511341577}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Enemy
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -1106095332496087818, guid: 3076b93ac23de834896e0bea3bf46e06, type: 3}
+  m_Sprite: {fileID: 3799508404887519019, guid: 835e5124a162a644e95309b343285281, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,17 +129,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.044999998, y: 0.49}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.30434778, y: -2.222222}
-    oldSize: {x: 0.23, y: 0.18}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.24, y: 0.17}
     newSize: {x: 0.23, y: 0.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.22999999, y: 0.18000004}
+  m_Size: {x: 0.24, y: 0.17}
   m_EdgeRadius: 0
 --- !u!50 &8330944428381985894
 Rigidbody2D:
@@ -182,3 +183,18 @@ MonoBehaviour:
   MoveSpeed: 3
   DisableDistance: 15
   Player: {fileID: 0}
+--- !u!114 &-5040506291511341577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8950191036223014433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9031fcb8aa417f4e84d7b0c77abc908, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHit
+  MaxHP: 10
+  HitColor: {r: 0, g: 0, b: 0, a: 0}
+  FlashDuration: 0
