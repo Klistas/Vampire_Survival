@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class EnemyHit : MonoBehaviour
@@ -26,6 +27,8 @@ public class EnemyHit : MonoBehaviour
         // 풀에서 가져와서 사용할때(활성화 될때) 풀피로 세팅한다.
         currentHP = MaxHP;
         isDead = false;
+        if(sp != null)
+            sp.color = originColor;
     }
 
     /// <summary>
@@ -40,8 +43,8 @@ public class EnemyHit : MonoBehaviour
 
         // 데미지만큼 현재 체력을 깎아줌.
         currentHP -= damage;
-
         // 피격연출
+        StartCoroutine(FlashRoutine());
 
         //현재 체력이 0 이하면
         if (currentHP <= 0)
@@ -50,13 +53,29 @@ public class EnemyHit : MonoBehaviour
             Die();
         }
     }
-    // 이미지의 색을 변경해서 피격되었을때 빨간색으로 깜빡이는 연출
+
+    /// <summary>
+    /// 이미지의 색을 변경해서 피격되었을때 빨간색으로 깜빡이는 연출
+    /// </summary>
+    /// <returns></returns>
+    private IEnumerator FlashRoutine()
+    {
+        // 현재 색을 한번 바꿔주고
+        sp.color = HitColor;
+
+        // 대기
+        yield return new WaitForSeconds(FlashDuration);
+
+        // 죽지 않았을 경우에만 원래 색으로 변경
+        if(!isDead)
+            sp.color = originColor;
+    }
+
     /// <summary>
     /// 죽는 기능 == HP를 잃는 기능 내부에 만약 HP가 0이하가 되면 호출. 적을 반환. 초기화. (보석,HP템).
     /// </summary>
     private void Die()
     {
-        Debug.Log("죽음");
         // isDead = true 만들어서 죽음 상태로 만들고.
         isDead = true;
         // 풀에 반환한다.

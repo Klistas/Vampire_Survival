@@ -183,6 +183,8 @@ MonoBehaviour:
   MoveSpeed: 3
   DisableDistance: 15
   Player: {fileID: 0}
+  KnockBackForce: 5
+  KnockBackTime: 0.3
 --- !u!114 &-5040506291511341577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,6 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9031fcb8aa417f4e84d7b0c77abc908, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHit
-  MaxHP: 10
-  HitColor: {r: 0, g: 0, b: 0, a: 0}
-  FlashDuration: 0
+  MaxHP: 50
+  HitColor: {r: 1, g: 0, b: 0, a: 1}
+  FlashDuration: 0.1

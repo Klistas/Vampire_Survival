@@ -8,6 +8,9 @@ public class PoolManager : MonoBehaviour
     // 리스트로 특정 게임오브젝트들의 풀(풀장,오브젝트를 꺼내서 쓸수있는)을 만든다.
     public static PoolManager instance;
 
+    public GameObject[] prefabs; // 사용할 오브젝트의 프리팹
+
+    private List<GameObject>[] pools; // 게임오브젝트(우리가 사용할 오브젝트 ex. 적, 투사체)를 넣어둘 보관함들.
     private void Awake()
     {
         if (instance == null)
@@ -19,19 +22,11 @@ public class PoolManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    public GameObject[] prefabs; // 사용할 오브젝트의 프리팹
-
-    private List<GameObject>[] pools; // 게임오브젝트(우리가 사용할 오브젝트 ex. 적, 투사체)를 넣어둘 보관함들.
-
-    private void Start()
-    {
         // 우리가 만들 프리팹 개수만큼 리스트를 만들어야 한다.
         pools = new List<GameObject>[prefabs.Length];
 
         // 프리팹의 개수만큼
-        for(int i = 0; i < prefabs.Length; i++)
+        for (int i = 0; i < prefabs.Length; i++)
         {
             // 리스트 초기화
             pools[i] = new List<GameObject>();

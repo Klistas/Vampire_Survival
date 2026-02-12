@@ -43,9 +43,10 @@ public class Bullet : MonoBehaviour
         // 적과 충돌했을때 데미지를주고 비활성화.
         if(collision.CompareTag("Enemy"))
         {
+            // 넉백 로직
+            collision.GetComponent<EnemyAI>().TakeHit(transform.up);
             // 데미지 주는 로직
             collision.GetComponent<EnemyHit>().TakeDamage(damage);
-
             // 총알을 비활성화하고 반환
             PoolManager.instance.Return(gameObject, 1);
         }
