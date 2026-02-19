@@ -8,7 +8,8 @@ public class EnemyHit : MonoBehaviour
     public Color HitColor; // 피격되었을때 깜빡거릴 색.
     public float FlashDuration; // 깜빡거리는 시간.
 
-    //드랍 설정값
+    [Header("드랍 설정값")]
+    public GameObject GemsPrefabs;// 보석 프리팹
 
     private float currentHP; // 현재 체력
     private SpriteRenderer sp; // 색을 바꿔주기 위한 렌더러
@@ -78,6 +79,10 @@ public class EnemyHit : MonoBehaviour
     {
         // isDead = true 만들어서 죽음 상태로 만들고.
         isDead = true;
+
+        // 경험치 보석 드랍
+        Instantiate(GemsPrefabs,transform.position, Quaternion.identity);
+
         // 풀에 반환한다.
         PoolManager.instance.Return(gameObject, 0);
     }

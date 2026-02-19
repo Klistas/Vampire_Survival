@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHit : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerHit : MonoBehaviour
     public float HitTime;
     // 대미지(추후 변경될 수 있다)
     public float HitDamage;
+    // 체력 슬라이더
+    public Slider HPSlider;
 
     // 현재 체력
     private float currentHP;
@@ -28,6 +31,7 @@ public class PlayerHit : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         originColor = sr.color;
         currentHP = MaxHP;
+        UpdateHPUI();
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -53,7 +57,8 @@ public class PlayerHit : MonoBehaviour
 
         // 대미지 입히는거
         currentHP -= damage;
-
+        // 입은 대미지 만큼 UI 업데이트
+        UpdateHPUI();
         // 무적루틴
         StartCoroutine(InvicibleRoutine());
 
@@ -98,6 +103,15 @@ public class PlayerHit : MonoBehaviour
     {
         // 현재는 시간만 멈춤. 추후 UI 등이 생성되면추가
         Time.timeScale = 0f;
+    }
+
+    /// <summary>
+    /// 현재 체력에 따라서 HP 슬라이더를 업데이트하는 함수
+    /// </summary>
+    public void UpdateHPUI()
+    {
+        // 지금 체력을 슬라이더에 적용시켜줌.
+        HPSlider.value = currentHP / MaxHP;
     }
 
 }
