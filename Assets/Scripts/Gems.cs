@@ -40,7 +40,7 @@ public class Gems : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             // 경험치를 올려주고
-            Debug.Log("경험치 상승");
+            GameManager.instance.GetEXP(GemsExp);
             // 나 자신 삭제
             Destroy(gameObject);
         }
