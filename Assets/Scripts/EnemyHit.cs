@@ -83,6 +83,9 @@ public class EnemyHit : MonoBehaviour
         // 경험치 보석 드랍
         Instantiate(GemsPrefabs,transform.position, Quaternion.identity);
 
+        // 킬카운트 추가
+        GameManager.instance.AddKillCount();
+
         // 풀에 반환한다.
         PoolManager.instance.Return(gameObject, 0);
     }

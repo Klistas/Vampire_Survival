@@ -72,7 +72,11 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void AddKillCount()
     {
-
+        // 킬카운트를 하나 올려주면 된다.
+        killCount++;
+        // 킬카운트 업데이트
+        KillCountText.text = $"Kill : {killCount}";
+       // KillCountText.text = killCount.ToString();
     }
 
     /// <summary>
@@ -116,7 +120,6 @@ public class GameManager : MonoBehaviour
         // 경험치바 업데이트
         EXPBar.value = currentExp / maxExp;
 
-        // 킬카운트 업데이트
     }
 
 }
