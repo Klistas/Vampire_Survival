@@ -16,12 +16,8 @@ public class PoolManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+
         // 우리가 만들 프리팹 개수만큼 리스트를 만들어야 한다.
         pools = new List<GameObject>[prefabs.Length];
 

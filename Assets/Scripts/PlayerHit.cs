@@ -98,11 +98,13 @@ public class PlayerHit : MonoBehaviour
         isInvincible = false;
     }
 
-    // 죽는 로직
+    /// <summary>
+    /// 죽는 로직
+    /// </summary>
     public void Die()
     {
-        // 현재는 시간만 멈춤. 추후 UI 등이 생성되면추가
-        Time.timeScale = 0f;
+        // 게임 매니저에서 게임 오버 로직을 호출
+        GameManager.instance.GameOver();
     }
 
     /// <summary>

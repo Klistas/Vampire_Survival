@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -12,11 +13,6 @@ public class GameManager : MonoBehaviour
         if(instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -28,6 +24,9 @@ public class GameManager : MonoBehaviour
     [Header("스테이지 관련 설정")]
     public TextMeshProUGUI KillCountText; // 킬카운트 관련 텍스트
     public TextMeshProUGUI TimerText; // 타이머 텍스트
+    public GameObject GameOverPanel;// 게임오버 패널
+    public Button RestartButton; // 재시작 버튼
+    public Button QuitButton; // 나가기 버튼
 
     private float currentExp; // 현재 경험치
     private float maxExp; // 레벨업까지 필요한 경험치
@@ -43,6 +42,11 @@ public class GameManager : MonoBehaviour
         level = 1;
         killCount = 0;
         timer = 0;
+
+        // 버튼들과 함수를 연결
+        RestartButton.onClick.AddListener(Restart);
+        QuitButton.onClick.AddListener(Quit);
+
         // 경험치 바를 업데이트하는 함수 호출
         UpdateUI();
     }
@@ -50,6 +54,38 @@ public class GameManager : MonoBehaviour
     {
         StartTimer();
     }
+
+    /// <summary>
+    /// 게임을 재시작 하는 버튼
+    /// </summary>
+    private void Restart()
+    {
+        // 시간 복구
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene(0);
+    }
+
+    /// <summary>
+    /// 프로그램 종료 버튼
+    /// </summary>
+    private void Quit()
+    {
+        Application.Quit();
+    }
+
+    /// <summary>
+    /// 게임오버 되었을때 호출되는 함수
+    /// </summary>
+    public void GameOver()
+    {
+        // 시간을 멈춤
+        Time.timeScale = 0f;
+
+        // 게임오버 패널을 켜줌.
+        GameOverPanel.SetActive(true);
+    }
+
 
     /// <summary>
     /// 타이머 관련 동작을 진행할 함수
