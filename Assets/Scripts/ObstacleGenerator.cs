@@ -15,7 +15,6 @@ public class ObstacleGenerator : MonoBehaviour
     {
         // 최초 생성
         GenerateObstacle();
-        Debug.Log("생성");
     }
     /// <summary>
     /// 장애물을 초기화하고 생성하는 함수

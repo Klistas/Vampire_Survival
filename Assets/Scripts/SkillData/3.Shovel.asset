@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ae6fc83f5555bf41b4f736cef4c6922, type: 3}
+  m_Name: 3.Shovel
+  m_EditorClassIdentifier: Assembly-CSharp::SkillData
+  skillName: "\uC0BD"
+  description: "\uD50C\uB808\uC774\uC5B4\uC758 \uC8FC\uBCC0\uC744 \uB3C4\uB294 \uC0BD"
+  icon: {fileID: 0}
+  WeaponSkillType: 0
+  baseDamage: 10
+  damagePerLevel: 5
+  cooldown: 0.5
+  lifeTime: 0.5
+  cooldownReductionPerLevel: 0.05
+  projectilePrefab: {fileID: 0}
+  projectileSpeed: 10
+  baseProjectileCount: 1
+  baseRange: 2
+  rangePerLevel: 0.3
+  itemId: 1
+  maxLevel: 5

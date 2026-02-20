@@ -2863,7 +2863,7 @@ MonoBehaviour:
   MaxHP: 100
   HitColor: {r: 1, g: 0, b: 0, a: 1}
   HitTime: 3
-  HitDamage: 100
+  HitDamage: 10
   HPSlider: {fileID: 1785406689}
 --- !u!1 &1396596783
 GameObject:
@@ -2985,13 +2985,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1523858422}
   - component: {fileID: 1523858423}
+  - component: {fileID: 1523858424}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1523858422
 Transform:
   m_ObjectHideFlags: 0
@@ -3014,7 +3015,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1523858421}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 362b900828ce2654a94f3a0587be6e7a, type: 3}
   m_Name: 
@@ -3025,6 +3026,19 @@ MonoBehaviour:
   Damage: 100
   BulletSpeed: 7
   LifeTime: 3
+--- !u!114 &1523858424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1523858421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f7354b0b43ea34190233909a01edab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponManager
+  skilldata: {fileID: 11400000, guid: 5b00fc35292debc4cbb34a835e6198e9, type: 2}
 --- !u!1 &1547123156
 GameObject:
   m_ObjectHideFlags: 0
