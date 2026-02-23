@@ -55,6 +55,8 @@ public class WeaponManager : MonoBehaviour
                 shotgun.LevelUp(level);
                 break;
             case SkillType.Orbital:
+                OrbitalWeapon orbit = weapon as OrbitalWeapon;
+                orbit.LevelUp(level);
                 break;
             case SkillType.Projectile:
                 break;
@@ -78,6 +80,9 @@ public class WeaponManager : MonoBehaviour
                 activeWeapons.Add(data.skillName, shotgun);
                 break;
             case SkillType.Orbital:
+                OrbitalWeapon orbit = skillPrefab.GetComponent<OrbitalWeapon>();
+                orbit.Init(data, 1);
+                activeWeapons.Add(data.skillName, orbit);
                 break;
             case SkillType.Projectile:
                 break;

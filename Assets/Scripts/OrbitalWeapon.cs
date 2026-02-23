@@ -12,17 +12,13 @@ public class OrbitalWeapon : WeaponBase
     // 현재 궤도상의 각도
     private float currentRotation;
 
-    private void Start()
-    {
-        Init(SkillData, 1);
-    }
 
     public override void Init(SkillData data, int level)
     {
         base.Init(data, level);
-
         if(orbitalObject == null)
         {
+            Debug.Log("생성");
             //궤도 물체가 없을때, 등록되어있는 프리팹을 플레이어의 위치에 생성
             orbitalObject = Instantiate(OrbitalPrefab, Player.position, Quaternion.identity);
             OrbitalObject orbitObj = GetComponent<OrbitalObject>();

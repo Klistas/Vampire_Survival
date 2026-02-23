@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   skillName: "\uC0BD"
   description: "\uD50C\uB808\uC774\uC5B4\uC758 \uC8FC\uBCC0\uC744 \uB3C4\uB294 \uC0BD"
-  icon: {fileID: 0}
-  WeaponSkillType: 0
+  icon: {fileID: -7554844106116034129, guid: 10ef2a1df7424ca4ab5c6931e392b5a7, type: 3}
+  WeaponSkillType: 2
   baseDamage: 10
   damagePerLevel: 5
   cooldown: 0.5
   lifeTime: 0.5
   cooldownReductionPerLevel: 0.05
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 5859463719624555472, guid: 702f91f70ba1b0e4a9fde558b2496476, type: 3}
   projectileSpeed: 10
   baseProjectileCount: 1
   baseRange: 2

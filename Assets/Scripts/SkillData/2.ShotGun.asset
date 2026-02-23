@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   skillName: "\uC0F7\uAC74"
   description: "\uC0F7\uAC74"
-  icon: {fileID: 0}
+  icon: {fileID: -4384315255773831016, guid: 10ef2a1df7424ca4ab5c6931e392b5a7, type: 3}
   WeaponSkillType: 1
   baseDamage: 10
   damagePerLevel: 5

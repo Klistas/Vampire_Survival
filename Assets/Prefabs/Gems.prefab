@@ -108,7 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Gems
   GemsRange: 1
   GemsSpeed: 10
-  GemsExp: 10
+  GemsExp: 100
 --- !u!50 &6324037155451940925
 Rigidbody2D:
   serializedVersion: 5

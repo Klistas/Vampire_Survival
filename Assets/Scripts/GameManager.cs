@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public Slider EXPBar; // 경험치 바
     public float BaseMaxEXP; // 최초 레벨업에 필요한 경험치
     public float LevelUpMultiplier; // 레벨업할 때마다 늘어나는 경험치 배수
+    public GameObject LevelUpPanel; // 레벨업 패널
+    public SkillCardUI CardUI; // 카드 UI
 
     [Header("스테이지 관련 설정")]
     public TextMeshProUGUI KillCountText; // 킬카운트 관련 텍스트
@@ -144,8 +146,23 @@ public class GameManager : MonoBehaviour
         // 최대 경험치(레벨업 경험치)를 올려주어야함.
         maxExp *= LevelUpMultiplier;
 
+        // 게임 일시정지
+        Time.timeScale = 0f;
+        // 레벨업 패널 활성화
+        LevelUpPanel.SetActive(true);
+        // 랜덤카드 생성 함수 호출
+        CardUI.ShowRandomCards();
+
         // 레벨업했을때 스킬추가 UI 나오기
         Debug.Log($"현재 레벨 : {level}");
+    }
+
+    public void ResumeGame()
+    {
+        // 게임의 일시정지를 풀어주고
+        Time.timeScale = 1f;
+        // 레벨업 패널을 꺼준다.
+        LevelUpPanel.SetActive(false);
     }
 
     /// <summary>
